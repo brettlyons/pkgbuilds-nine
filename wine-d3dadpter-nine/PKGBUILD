@@ -8,8 +8,8 @@ pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs. Latest GIT version."
 url="http://www.winehq.com"
 arch=('i686' 'x86_64')
-# options=(staticlibs)
-options=(staticlibs !strip debug)
+options=(staticlibs)
+# options=(staticlibs !strip debug)
 license='LGPL'
 install='wine-git.install'
 
