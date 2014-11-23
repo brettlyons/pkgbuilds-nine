@@ -82,7 +82,7 @@ package_opencl-mesa() {
 #  HACK ALERT: Mesa-Nine currently provides gallium-pipe.
 
   install -m755 -d "${pkgdir}/usr/share/licenses/opencl-mesa"
-  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/opencl-mesa/"
+#  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/opencl-mesa/"
 }
 
 package_mesa-dri() {
@@ -120,7 +120,7 @@ package_mesa-vdpau() {
   mv -v ${srcdir}/fakeinstall/usr/lib/vdpau ${pkgdir}/usr/lib
    
   install -m755 -d "${pkgdir}/usr/share/licenses/mesa-vdpau"
-  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa-vdpau/"
+#  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa-vdpau/"
 }
 
 package_mesa() {
@@ -135,8 +135,12 @@ package_mesa() {
   install -m755 -d ${pkgdir}/usr/lib
   mv -v ${srcdir}/fakeinstall/usr/lib/bellagio  ${pkgdir}/usr/lib
   mv -v ${srcdir}/fakeinstall/usr/lib/lib{OSMesa,gbm,glapi,wayland-egl,xatracker}.so* ${pkgdir}/usr/lib/
+<<<<<<< HEAD
   mv -v ${srcdir}/fakeinstall/usr/lib/d3d	${pkgdir}/usr/lib
   # places the Nine libs
+=======
+  mv -v ${srcdir}/fakeinstall/usr/lib/d3d/	${pkgdir}/usr/lib/
+>>>>>>> parent of a0abbca... added LICENSE file, updated PKGBUILD to install it
 
   # mv -v ${srcdir}/fakeinstall/usr/lib/libd3dadapter9.so* ${pkgdir}/usr/lib/
   # FS#41337
@@ -152,7 +156,7 @@ package_mesa() {
   mv -v ${srcdir}/fakeinstall/usr/lib/libGLES*.so*	${pkgdir}/usr/lib/mesa/
 
   install -m755 -d "${pkgdir}/usr/share/licenses/mesa"
-  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa/"
+#  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa/"
 }
 
 package_mesa-libgl() {
@@ -182,5 +186,5 @@ package_mesa-libgl() {
   ln -s libGLESv2.so.2.0.0               ${pkgdir}/usr/lib/libGLESv2.so
 
   install -m755 -d "${pkgdir}/usr/share/licenses/mesa-libgl"
-  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa-libgl/"
+#  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/mesa-libgl/"
 }
