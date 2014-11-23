@@ -114,7 +114,7 @@ package_lib32-mesa() {
   install -m755 -d ${pkgdir}/usr/lib32/d3d
 
   mv -v ${srcdir}/fakeinstall/usr/lib32/lib{OSMesa,gbm,glapi,wayland-egl}.so* ${pkgdir}/usr/lib32/
-  mv -v ${srcdir}/fakeinstall/usr/lib32/d3d			       	  ${pkdgir}/usr/lib32
+  mv -v ${srcdir}/fakeinstall/usr/lib32/d3d			       	  ${pkgdir}/usr/lib32
   
   # mv -v ${srcdir}/fakeinstall/usr/lib32/gallium-pipe/pipe_swrast* ${pkgdir}/usr/lib32/gallium-pipe/
   # FS#41337
