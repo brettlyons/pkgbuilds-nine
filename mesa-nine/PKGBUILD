@@ -135,7 +135,7 @@ package_mesa() {
   install -m755 -d ${pkgdir}/usr/lib
   mv -v ${srcdir}/fakeinstall/usr/lib/bellagio  ${pkgdir}/usr/lib
   mv -v ${srcdir}/fakeinstall/usr/lib/lib{OSMesa,gbm,glapi,wayland-egl,xatracker}.so* ${pkgdir}/usr/lib/
-  mv -v ${srcdir}/fakeinstall/usr/lib/d3d/	${pkgdir}/usr/lib/
+  mv -v ${srcdir}/fakeinstall/usr/lib/d3d	${pkgdir}/usr/lib
   # places the Nine libs
 
   # mv -v ${srcdir}/fakeinstall/usr/lib/libd3dadapter9.so* ${pkgdir}/usr/lib/
