@@ -111,6 +111,8 @@ package_lib32-mesa() {
   replaces=('lib32-libglapi' 'lib32-osmesa' 'lib32-libgbm' 'lib32-libgles' 'lib32-libegl')
 
   install -m755 -d ${pkgdir}/usr/lib32
+  install -m755 -d ${pkgdir}/usr/lib32/d3d
+
   mv -v ${srcdir}/fakeinstall/usr/lib32/lib{OSMesa,gbm,glapi,wayland-egl}.so* ${pkgdir}/usr/lib32/
   mv -v ${srcdir}/fakeinstall/usr/lib32/d3d			       	  ${pkdgir}/usr/lib32
   
