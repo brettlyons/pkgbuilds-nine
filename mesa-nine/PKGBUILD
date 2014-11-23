@@ -136,8 +136,12 @@ package_mesa() {
   mv -v ${srcdir}/fakeinstall/usr/lib/bellagio  ${pkgdir}/usr/lib
   mv -v ${srcdir}/fakeinstall/usr/lib/lib{OSMesa,gbm,glapi,wayland-egl,xatracker}.so* ${pkgdir}/usr/lib/
 <<<<<<< HEAD
+<<<<<<< HEAD
   mv -v ${srcdir}/fakeinstall/usr/lib/d3d	${pkgdir}/usr/lib
   # places the Nine libs
+=======
+  mv -v ${srcdir}/fakeinstall/usr/lib/d3d/	${pkgdir}/usr/lib/
+>>>>>>> parent of a0abbca... added LICENSE file, updated PKGBUILD to install it
 =======
   mv -v ${srcdir}/fakeinstall/usr/lib/d3d/	${pkgdir}/usr/lib/
 >>>>>>> parent of a0abbca... added LICENSE file, updated PKGBUILD to install it
