@@ -104,7 +104,7 @@ package_lib32-mesa-vdpau() {
 package_lib32-mesa() {
   pkgdesc="an open-source implementation of the OpenGL specification (32-bit)"
   depends=('lib32-libdrm' 'lib32-libxxf86vm' 'lib32-libxdamage' 'lib32-libxshmfence' 'lib32-systemd'
-           'lib32-elfutils' 'lib32-llvm-libs' 'lib32-wayland' 'lib32-mesa-dri' 'mesa')
+           'lib32-elfutils' 'lib32-llvm-libs' 'lib32-wayland' 'lib32-mesa-dri' 'mesa' 'lib32-libxvmc')
   optdepends=('opengl-man-pages: for the OpenGL API man pages')
   provides=('lib32-libglapi' 'lib32-osmesa' 'lib32-libgbm' 'lib32-libgles' 'lib32-libegl')
   conflicts=('lib32-libglapi' 'lib32-osmesa' 'lib32-libgbm' 'lib32-libgles' 'lib32-libegl')
@@ -112,7 +112,7 @@ package_lib32-mesa() {
 
   install -m755 -d ${pkgdir}/usr/lib32
   mv -v ${srcdir}/fakeinstall/usr/lib32/lib{OSMesa,gbm,glapi,wayland-egl}.so* ${pkgdir}/usr/lib32/
-  mv -v ${srcdir}/fakeinstall/usr/lib32/d3d9			       	  ${pkdgir}/usr/lib32/
+  mv -v ${srcdir}/fakeinstall/usr/lib32/d3d9/			       	  ${pkdgir}/usr/lib32/
   
   # mv -v ${srcdir}/fakeinstall/usr/lib32/gallium-pipe/pipe_swrast* ${pkgdir}/usr/lib32/gallium-pipe/
   # FS#41337
