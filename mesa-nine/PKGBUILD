@@ -1,6 +1,9 @@
 # $Id: PKGBUILD 225321 2014-10-25 07:22:50Z andyrtr $
-# Maintainer: Jan de Groot <jgc@archlinux.org>
-# Maintainer: Andreas Radke <andyrtr@archlinux.org>
+# Maintainer: Brett Lyons <lyonsb@students.naropa.edu>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+# Contributor: Andreas Radke <andyrtr@archlinux.org>
+
+# Based on the 10.3 mesa PKGBUILD from arch ABS
 
 pkgbase=mesa
 pkgname=('opencl-mesa' 'mesa-dri' 'mesa-vdpau' 'mesa' 'mesa-libgl')
