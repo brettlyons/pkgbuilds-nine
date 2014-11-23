@@ -87,7 +87,7 @@ package_lib32-mesa-dri() {
   mv -v ${srcdir}/fakeinstall/usr/lib32/xorg/modules/dri/{kms_,}swrast_dri.so ${pkgdir}/usr/lib32/xorg/modules/dri
 
   install -m755 -d "${pkgdir}/usr/share/licenses/lib32-mesa-dri"
-  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/lib32-mesa-dri/"
+#  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/lib32-mesa-dri/"
 }
 
 package_lib32-mesa-vdpau() {
@@ -98,7 +98,7 @@ package_lib32-mesa-vdpau() {
   mv -v ${srcdir}/fakeinstall/usr/lib32/vdpau ${pkgdir}/usr/lib32
    
   install -m755 -d "${pkgdir}/usr/share/licenses/lib32-mesa-vdpau"
-  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/lib32-mesa-vdpau/"
+#  install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/lib32-mesa-vdpau/"
 }
 
 package_lib32-mesa() {
@@ -126,8 +126,8 @@ package_lib32-mesa() {
   mv -v ${srcdir}/fakeinstall/usr/lib32/libEGL.so*   ${pkgdir}/usr/lib32/mesa/
   mv -v ${srcdir}/fakeinstall/usr/lib32/libGLES*.so* ${pkgdir}/usr/lib32/mesa/
   # keep symlinks until pacman 4.2 FS#42046
-  # install -m755 -d "${pkgdir}/usr/share/licenses/lib32-mesa"
-  # install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/lib32-mesa/"
+  #install -m755 -d "${pkgdir}/usr/share/licenses/lib32-mesa"
+  #install -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/lib32-mesa/"
   install -m755 -d "${pkgdir}/usr/share/licenses"
   ln -s mesa "$pkgdir/usr/share/licenses/lib32-mesa"
 }
