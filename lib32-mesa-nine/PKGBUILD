@@ -12,7 +12,7 @@ pkgrel=1
 arch=('x86_64')
 makedepends=('python2' 'lib32-libxml2' 'lib32-expat' 'lib32-libx11' 'glproto' 'lib32-libdrm' 'dri2proto' 'dri3proto' 'presentproto'
              'lib32-libxshmfence' 'lib32-libxxf86vm' 'lib32-libxdamage' 'gcc-multilib' 'lib32-elfutils' 'lib32-llvm' 'lib32-systemd'
-             'lib32-libvdpau' 'lib32-wayland' 'lib32-libxvmc')
+             'lib32-libvdpau' 'lib32-wayland' 'lib32-libxvmc' 'python2-mako')
 url="http://mesa3d.sourceforge.net"
 license=('custom')
 source=("mesa"::'git+https://github.com/iXit/Mesa-3D.git#branch=master')
