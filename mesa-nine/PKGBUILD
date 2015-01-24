@@ -1,5 +1,5 @@
 # $Id: PKGBUILD 225321 2014-10-25 07:22:50Z andyrtr $
-# Maintainer: Brett Lyons <lyonsb@students.naropa.edu>
+# Maintainer: Brett Lyons <blyons@students.naropa.edu>
 # Contributor: Jan de Groot <jgc@archlinux.org>
 # Contributor: Andreas Radke <andyrtr@archlinux.org>
 
@@ -12,7 +12,7 @@ pkgrel=1
 arch=('i686' 'x86_64')
 makedepends=('python2' 'libxml2' 'libx11' 'glproto' 'libdrm' 'dri2proto' 'dri3proto' 'presentproto' 
              'libxshmfence' 'libxxf86vm'  'libxdamage' 'libvdpau' 'wayland' 'elfutils' 'llvm' 'systemd'
-             'libomxil-bellagio' 'libclc' 'clang' 'libxvmc')
+             'libomxil-bellagio' 'libclc' 'clang' 'libxvmc' 'python2-mako')
 url="http://mesa3d.sourceforge.net"
 license=('custom')
 #source=(ftp://ftp.freedesktop.org/pub/mesa/${pkgver}/MesaLib-${pkgver}.tar.bz2{,.sig}
