@@ -14,8 +14,8 @@ arch=('i686' 'x86_64')
 url="http://xorg.freedesktop.org/"
 provides=("${_realpkgname}")
 depends=('libdrm>=2.4.41' 'systemd' 'ati-dri')
-makedepends=('xorg-server-devel' 'X-ABI-VIDEODRV_VERSION=18')
-conflicts=('xorg-server<1.16.0' 'X-ABI-VIDEODRV_VERSION<18' 'X-ABI-VIDEODRV_VERSION>=19' 'xf86-video-ati')
+makedepends=('xorg-server-devel' 'X-ABI-VIDEODRV_VERSION=19')
+conflicts=('xorg-server<1.17.0' 'X-ABI-VIDEODRV_VERSION<19' 'X-ABI-VIDEODRV_VERSION>=20' 'xf86-video-ati')
 license=('custom')
 
 #source=('xf86-video-ati::git://anongit.freedesktop.org/xorg/driver/xf86-video-ati#branch=master')
