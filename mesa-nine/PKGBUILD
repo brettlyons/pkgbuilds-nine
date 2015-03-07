@@ -7,7 +7,7 @@
 
 pkgbase=mesa
 pkgname=('opencl-mesa' 'mesa-dri' 'mesa-vdpau' 'mesa' 'mesa-libgl')
-pkgver=10.4.0_devel.66284
+pkgver=10.6.0_devel.66484
 pkgrel=1
 arch=('i686' 'x86_64')
 makedepends=('python2' 'libxml2' 'libx11' 'glproto' 'libdrm' 'dri2proto' 'dri3proto' 'presentproto' 
