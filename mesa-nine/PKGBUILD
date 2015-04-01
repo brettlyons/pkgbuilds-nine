@@ -63,8 +63,11 @@ build() {
 
   make
 
-  # fake installation
-  mkdir $srcdir/fakeinstall
+  #Make the fake install directory if it doesn't exist
+  if [ ! -d "$srcdir/fakeinstall"]; then
+    mkdir $srcdir/fakeinstall
+  fi
+  
   make DESTDIR=${srcdir}/fakeinstall install
 }
 
