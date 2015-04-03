@@ -24,6 +24,16 @@ source=("mesa"::'git+https://github.com/iXit/Mesa-3D.git#branch=master')
 sha256sums=('SKIP')
 #options=(!strip debug)
 
+prepare() {
+	cd "${srcdir}/mesa/"
+	
+	#Apply any patches found
+	for pf in $( ls | grep *.patch); do
+		patch -p1 --dry-run < $pf
+		patch -p1 < $pf
+	done
+}
+
 build() {
   cd ${srcdir}/mesa
 
