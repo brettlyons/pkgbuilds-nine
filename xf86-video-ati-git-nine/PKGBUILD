@@ -23,6 +23,16 @@ source=('xf86-video-ati::git://github.com/iXit/xf86-video-ati#branch=master')
 
 md5sums=('SKIP')
 
+prepare() {
+	cd "${srcdir}/xf86-video-ati/"
+	
+	#Apply any patches found
+	for pf in $( ls | grep *.patch); do
+		patch -p1 --dry-run < $pf
+		patch -p1 < $pf
+	done
+}
+
 build() {
   cd "${srcdir}/xf86-video-ati"
     
