@@ -7,12 +7,16 @@
 #
 pkgbase=lib32-mesa
 pkgname=('lib32-mesa-dri' 'lib32-mesa-vdpau' 'lib32-mesa' 'lib32-mesa-libgl')
+<<<<<<< HEAD
 pkgver=10.7_devel
+=======
+pkgver=10.6_devel
+>>>>>>> 07096572b129892af60b02a86c350166edab7627
 pkgrel=1
 arch=('x86_64')
 makedepends=('python2' 'lib32-libxml2' 'lib32-expat' 'lib32-libx11' 'glproto' 'lib32-libdrm' 'dri2proto' 'dri3proto' 'presentproto'
              'lib32-libxshmfence' 'lib32-libxxf86vm' 'lib32-libxdamage' 'gcc-multilib' 'lib32-elfutils' 'lib32-llvm' 'lib32-systemd'
-             'lib32-libvdpau' 'lib32-wayland' 'lib32-libxvmc')
+             'lib32-libvdpau' 'lib32-wayland' 'lib32-libxvmc' 'python2-mako')
 url="http://mesa3d.sourceforge.net"
 license=('custom')
 source=("mesa"::'git+https://github.com/iXit/Mesa-3D.git#branch=master')
@@ -23,6 +27,16 @@ source=("mesa"::'git+https://github.com/iXit/Mesa-3D.git#branch=master')
 #            '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2')
 sha256sums=('SKIP')
 #options=(!strip debug)
+
+prepare() {
+	cd "${srcdir}/mesa/"
+	
+	#Apply any patches found
+	for pf in $( ls | grep *.patch); do
+		patch -p1 --dry-run < $pf
+		patch -p1 < $pf
+	done
+}
 
 build() {
   export CC="gcc -m32"
@@ -64,7 +78,11 @@ build() {
 
   make
 
-  mkdir $srcdir/fakeinstall
+  #Make the fake install directory if it doesn't exist
+  if [ ! -d "$srcdir/fakeinstall"]; then
+    mkdir $srcdir/fakeinstall
+  fi
+  
   make DESTDIR=${srcdir}/fakeinstall install
 }
 

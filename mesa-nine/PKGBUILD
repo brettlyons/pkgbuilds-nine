@@ -1,5 +1,5 @@
 # $Id: PKGBUILD 225321 2014-10-25 07:22:50Z andyrtr $
-# Maintainer: Brett Lyons <lyonsb@students.naropa.edu>
+# Maintainer: Brett Lyons <blyons@students.naropa.edu>
 # Contributor: Jan de Groot <jgc@archlinux.org>
 # Contributor: Andreas Radke <andyrtr@archlinux.org>
 
@@ -7,12 +7,16 @@
 
 pkgbase=mesa
 pkgname=('opencl-mesa' 'mesa-dri' 'mesa-vdpau' 'mesa' 'mesa-libgl')
+<<<<<<< HEAD
 pkgver=10.7.0_devel
+=======
+pkgver=10.6_devel
+>>>>>>> 07096572b129892af60b02a86c350166edab7627
 pkgrel=1
 arch=('i686' 'x86_64')
 makedepends=('python2' 'libxml2' 'libx11' 'glproto' 'libdrm' 'dri2proto' 'dri3proto' 'presentproto'
              'libxshmfence' 'libxxf86vm'  'libxdamage' 'libvdpau' 'wayland' 'elfutils' 'llvm' 'systemd'
-             'libomxil-bellagio' 'libclc' 'clang' 'libxvmc')
+             'libomxil-bellagio' 'libclc' 'clang' 'libxvmc' 'python2-mako')
 url="http://mesa3d.sourceforge.net"
 license=('custom')
 #source=(ftp://ftp.freedesktop.org/pub/mesa/${pkgver}/MesaLib-${pkgver}.tar.bz2{,.sig}
@@ -23,6 +27,16 @@ source=("mesa"::'git+https://github.com/iXit/Mesa-3D.git#branch=master')
 #            '7fdc119cf53c8ca65396ea73f6d10af641ba41ea1dd2bd44a824726e01c8b3f2')
 sha256sums=('SKIP')
 #options=(!strip debug)
+
+prepare() {
+	cd "${srcdir}/mesa/"
+	
+	#Apply any patches found
+	for pf in $( ls | grep *.patch); do
+		patch -p1 --dry-run < $pf
+		patch -p1 < $pf
+	done
+}
 
 build() {
   cd ${srcdir}/mesa
@@ -63,8 +77,11 @@ build() {
 
   make
 
-  # fake installation
-  mkdir $srcdir/fakeinstall
+  #Make the fake install directory if it doesn't exist
+  if [ ! -d "$srcdir/fakeinstall"]; then
+    mkdir $srcdir/fakeinstall
+  fi
+  
   make DESTDIR=${srcdir}/fakeinstall install
 }
 
@@ -133,6 +150,7 @@ package_mesa() {
   replaces=('libglapi' 'osmesa' 'libgbm' 'libgles' 'libegl' 'khrplatform-devel')
 
   install -m755 -d ${pkgdir}/usr/lib
+  install -m755 -d ${pkgdir}/usr/lib/d3d
   mv -v ${srcdir}/fakeinstall/usr/lib/bellagio  ${pkgdir}/usr/lib
   mv -v ${srcdir}/fakeinstall/usr/lib/lib{OSMesa,gbm,glapi,wayland-egl,xatracker}.so* ${pkgdir}/usr/lib/
   mv -v ${srcdir}/fakeinstall/usr/lib/d3d	${pkgdir}/usr/lib

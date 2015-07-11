@@ -111,6 +111,16 @@ pkgver() {
   git describe --always --long | sed -E 's/([^-]*-g)/r\1/;s/-/./g;s/^wine.//'
 }
 
+prepare() {
+	cd "${srcdir}"
+	
+	#Apply any patches found
+	for pf in $( ls | grep *.patch); do
+		patch -p1 --dry-run < $pf
+		patch -p1 < $pf
+	done
+}
+
 build() {
   cd "$srcdir"
   # ncurses fix
