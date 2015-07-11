@@ -7,11 +7,7 @@
 
 pkgbase=mesa
 pkgname=('opencl-mesa' 'mesa-dri' 'mesa-vdpau' 'mesa' 'mesa-libgl')
-<<<<<<< HEAD
 pkgver=10.7.0_devel
-=======
-pkgver=10.6_devel
->>>>>>> 07096572b129892af60b02a86c350166edab7627
 pkgrel=1
 arch=('i686' 'x86_64')
 makedepends=('python2' 'libxml2' 'libx11' 'glproto' 'libdrm' 'dri2proto' 'dri3proto' 'presentproto'
@@ -30,7 +26,7 @@ sha256sums=('SKIP')
 
 prepare() {
 	cd "${srcdir}/mesa/"
-	
+
 	#Apply any patches found
 	for pf in $( ls | grep *.patch); do
 		patch -p1 --dry-run < $pf
@@ -81,7 +77,7 @@ build() {
   if [ ! -d "$srcdir/fakeinstall"]; then
     mkdir $srcdir/fakeinstall
   fi
-  
+
   make DESTDIR=${srcdir}/fakeinstall install
 }
 
